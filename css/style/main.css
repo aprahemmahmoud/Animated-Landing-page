@@ -47,7 +47,7 @@ p {
         position: relative;
     }
 
-    .container-grid-row {
+    .container-grid-columns {
         display: grid;
         width: 70%;
         height: 100%;
@@ -78,16 +78,74 @@ p {
 
     .section-title {
         margin: auto;
+        font-size: 30px;
         width: fit-content;
         padding: 10px 20px;
-        border: black solid 4px;
+        border: black solid 2px;
         text-align: center;
         margin-bottom: var(--main-padding-bottom);
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
     }
+    
+    .section-title:hover {
+        transition-delay: 0.6s;
+        color: white;
+        
+    }
+
+    .section-title:hover::before,
+    .section-title:hover::after {
+        transition: 0.5s;
+    }
+
+    .section-title::before {
+        content: "";
+        position: absolute;
+        background-color: var(--main-color);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%) translateX(-30px);
+    }
+
+    .section-title:hover::before {
+        transform: translateY(-50%) translateX(0px);
+        width: 50%;
+        height: 100%;
+        border-radius: 0px;
+        z-index: -1;
+    }
+
+    .section-title::after {
+        content: "";
+        position: absolute;
+        background-color: var(--main-color);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%) translateX(30px);
+    }
+
+    .section-title:hover::after {
+        transform: translateY(-50%) translateX(0px);
+        width: 50%;
+        height: 100%;
+        border-radius: 0px;
+        z-index: -1;
+    }
+
 
     .box {
         display: flex;
         flex-flow: column;
+        overflow: hidden;
     }
 
     h1 {
@@ -96,7 +154,7 @@ p {
 
 
 
-    
+
 /* end components */
 /* start header */
 header {
@@ -288,7 +346,7 @@ nav li:hover::before {
 }
 /* end landing */
 /* start articles */
-.articles  .container-grid-row{
+.articles  .container-grid-columns{
     grid-template-columns:  repeat(auto-fill , minmax(255px,1fr));
 }
 
@@ -348,3 +406,18 @@ nav li:hover::before {
 }
 
 /* end articles */
+/* start Gallery */
+.Gallery .container-grid-columns {
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+}
+.Gallery .box {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0px 12px 20px rgb(0 0 0 / 13%),;
+}
+
+
+
+/* end Gallery */
+
+
