@@ -16,6 +16,10 @@
     --section-background: #ececec;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -30,6 +34,10 @@ img {
     height: 100%;
 }
 
+p {
+    color: #666;
+}
+
 /* start components */
     .container {
         display: flex;
@@ -39,14 +47,63 @@ img {
         position: relative;
     }
 
+    .container-grid-row {
+        display: grid;
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        gap: 40px;
+    }
 
+    .container-column {
+        display: flex;
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        flex-flow: column;
+        gap: 40px;
+    }
+
+    section {
+        padding-top: calc(var(--main-padding-top));
+        padding-bottom: var(--main-padding-bottom);
+        height: 110vh;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
+
+    .section-title {
+        margin: auto;
+        width: fit-content;
+        padding: 10px 20px;
+        border: black solid 4px;
+        text-align: center;
+        margin-bottom: var(--main-padding-bottom);
+    }
+
+    .box {
+        display: flex;
+        flex-flow: column;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+
+
+    
 /* end components */
 /* start header */
 header {
     height: 100vh;
+    padding-bottom: var(--main-padding-bottom);
+    margin-bottom: 40px;
 }
-
-
 /* end header */
 /* nav */
 .logo {
@@ -58,7 +115,7 @@ header {
 nav {
     height: 72px;
     width: 100%;
-    border-bottom: black 1px solid;
+    background-color: white;
 }
 nav .container {
     flex-flow: row;
@@ -135,7 +192,6 @@ nav li:hover::before {
 .links li {
     text-align: left;
     justify-content: flex-start; 
-    /* background-color: aqua; */
 }
 
 .links a {
@@ -154,11 +210,22 @@ nav li:hover::before {
 /* start landing */
 .landing {
     width: 100%;
-    height: 100%;
-    background-color: #ececec;
+    height: 70%;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+}
+
+.landing::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 90%;
+    background-color: rgb(93%, 93%, 93%);
+    z-index: -1;
+    transform: skewY(-6deg);
+    top: -40px;
+
 }
 
 .landing .container {
@@ -167,9 +234,117 @@ nav li:hover::before {
     height: 70%;
 }
 
-.landing .image {
+.landing img {
     width: 600px;
     height: 378px;
+    animation-name: img-up-down;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
+
+.landing p {
+    font-size: 23px;
+    color: #666;
+    line-height: 1.7;
+}
+
+@keyframes img-up-down {
+    0% {
+        transform: translateY(0px);
+    }
+    50%  {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.go-down {
+    position: absolute;
+    color: var(--main-color);
+    bottom: 50px;
+    left: 50%;
+    animation-name: go-down;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes go-down {
+    0% {
+        transform: translateY(-30px);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-0px);
+    }
+    100% {
+        transform: translateY(-30px);
+    }
+}
 /* end landing */
+/* start articles */
+.articles  .container-grid-row{
+    grid-template-columns:  repeat(auto-fill , minmax(255px,1fr));
+}
+
+.articles .box {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1) ;
+    transition: transform var(--main-transition);
+}
+
+.articles .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2) ;
+}
+
+
+.articles .content {
+    padding: 20px;
+}
+
+.articles .content p {
+    line-height: 1.5;
+    margin-top:10px;
+}
+
+.articles .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-color);
+    padding: 20px;
+    border-top: 1px solid rgb(230, 230, 231);
+}
+
+.articles a {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.articles img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.articles .box:hover .info i {
+    animation: box-hover 0.8s linear infinite;
+}
+
+@keyframes box-hover {
+    0% {
+        transform: translateX(-7px);
+    }
+    100% {
+        transform: translateX(7px);
+    }
+}
+
+/* end articles */
