@@ -531,6 +531,53 @@ nav li:hover::before {
     transition: var(--main-transition);
 }
 
+.features .image::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    border-width: 0px 0px 200px 400px;
+    z-index: 4;
+    bottom: 0;
+    right: 0;
+    transition: var(--main-transition);
+}
+
+.features .box:hover .image::after {
+    border-width: 0px 400px 200px 0px;
+}
+
+.features a {
+    position: relative;
+}
+
+.features a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    transition: var(--main-transition);
+    z-index: -3;
+}
+
+.quality a{
+    color: rgb(96%, 25%, 21%);
+    border: 3px solid rgb(96%, 25%, 21%);
+}
+
+.quality a::after {
+    background-color: rgb(96%, 25%, 21%);
+}
+
+.quality:hover a::after{
+    width: 100%;
+}
+
+.quality:hover a{
+    color: white;
+}
 
 
 .quality .image::before {
@@ -538,14 +585,21 @@ nav li:hover::before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(245, 63, 54, 0.299);
+    background-color: rgba(245, 63, 54, 0.6);
+    z-index: 3;
+}
+
+
+
+
+.time .image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0%, 59%, 53%,0.6);
     z-index: 3;
 } 
-
-.quality a{
-    color: rgb(96%, 25%, 21%);
-    border: 3px solid rgb(96%, 25%, 21%);
-}
 
 .time a{
     color: rgb(0%, 59%, 53%);
@@ -553,13 +607,44 @@ nav li:hover::before {
     
 }
 
+.time a::after {
+    background-color: rgb(0%, 59%, 53%);
+}
+
+.time:hover a::after{
+    width: 100%;
+}
+
+.time:hover a{
+    color: white;
+}
+
+
+.passion .image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(1%, 66%, 96%,0.6);
+    z-index: 3;
+} 
+
 .passion a{
     color: rgb(1%, 66%, 96%);
     border: 3px solid rgb(1%, 66%, 96%);
 }
 
+.passion a::after {
+    background-color: rgb(1%, 66%, 96%);
+}
 
+.passion:hover a::after{
+    width: 100%;
+}
 
+.passion:hover a{
+    color: white;
+}
 
 
 
