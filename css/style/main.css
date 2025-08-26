@@ -16,6 +16,10 @@
     --section-background: #ececec;
 }
 
+/* body {
+    counter-reset: Link;
+} */
+
 html {
     scroll-behavior: smooth;
 }
@@ -513,8 +517,10 @@ nav li:hover::before {
 /* end Gallery */
 /* start features */
 .features .container-grid-columns {
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .features .box {
@@ -555,17 +561,17 @@ nav li:hover::before {
     border-width: 0px 400px 200px 0px;
 }
 
-@media (max-width:614px) {
+@media (max-width:727px) {
     .features .container-grid-columns {
         justify-content: center;
         align-items: center;
     }
     .features .image::after{
-        border-width: 0px 0px 400px 600px;
+        border-width: 0px 0px 500px 700px;
     }
 
     .features .box:hover .image::after {
-    border-width: 0px 600px 400px 0px;
+    border-width: 0px 700px 500px 0px;
 }
 }
 
@@ -798,13 +804,129 @@ nav li:hover::before {
 /* start services */
 .services .container-grid-columns {
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    counter-reset: Link;
+}
+
+.services {
+    background-color: var(--section-background);
+}
+
+.services .box {
+    background-color: white;
+    align-items: center;
+    box-shadow: 0px 15px 20px rgb(77%, 77%, 77%);
+    position: relative;
+    transition: var(--main-transition);
+}
+.services .box:hover {
+    transform: translateY(-10px);
+}
+
+.services .box::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    background-color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.services .box:hover::before {
+    width: 100%;
+}
+
+.services i {
+    margin: 30px 0px 20px 0px;
+    color: rgb(84%, 84%, 84%);
+}
+
+.services h3 {
+    font-size: 25px;
+    color: var(--main-color);
+    margin: 20px 0px 40px 0px;
+}
+
+.services .box a {
+    color: var(--main-color);
+}
+
+.services .box div {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(98%, 98%, 98%);
+    width: 100%;
+    position: relative;
+}
+
+.services .box div::before {
+    counter-increment: Link;
+    content: counter(Link);
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: 0;
+    top: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.services .box div::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: calc(100% + 30px);
+    background-color: var(--section-background);
+    z-index: 3;
+    top: 0;
+    left: 70px;
+    transform: skew(-30deg);
+}
+/* end services */
+/* start our-skills */
+.our-skills .container-grid-columns {
+    grid-template-columns: 45% 55%;
+    gap: 0px;
+}
+
+.our-skills .skill h3{
+    display: flex;
+    justify-content: space-between;
+    margin: 19px;
+}
+
+.our-skills .skill h3 span {
+    border: 1px solid #ccc;
+    color: var(--main-color);
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.the-progress {
+    width: 100%;
+    height: 30px;
+    background-color: var(--section-background);
+    position: relative;
+}
+.the-progress span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* width: 80%; */
+    background-color: var(--main-color);
 }
 
 
 
 
-/* end services */
-/* start our-skills */
+
 
 
 
