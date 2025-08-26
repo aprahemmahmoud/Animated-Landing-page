@@ -334,8 +334,16 @@ nav li:hover::before {
     animation-iteration-count: infinite;
 }
 @media (max-width:780px) {
+    .landing .image {
+        display: none;
+    }
     .landing img {
         display: none;
+    }
+
+    .landing h1 ,
+    .landing p {
+        text-align: center;
     }
 }
 
@@ -505,7 +513,7 @@ nav li:hover::before {
 /* end Gallery */
 /* start features */
 .features .container-grid-columns {
-    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     text-align: center;
 }
 
@@ -547,6 +555,21 @@ nav li:hover::before {
     border-width: 0px 400px 200px 0px;
 }
 
+@media (max-width:614px) {
+    .features .container-grid-columns {
+        justify-content: center;
+        align-items: center;
+    }
+    .features .image::after{
+        border-width: 0px 0px 400px 600px;
+    }
+
+    .features .box:hover .image::after {
+    border-width: 0px 600px 400px 0px;
+}
+}
+
+
 .features a {
     position: relative;
 }
@@ -579,7 +602,6 @@ nav li:hover::before {
     color: white;
 }
 
-
 .quality .image::before {
     content: "";
     position: absolute;
@@ -588,9 +610,6 @@ nav li:hover::before {
     background-color: rgba(245, 63, 54, 0.6);
     z-index: 3;
 }
-
-
-
 
 .time .image::before {
     content: "";
@@ -604,7 +623,6 @@ nav li:hover::before {
 .time a{
     color: rgb(0%, 59%, 53%);
     border: 3px solid rgb(0%, 59%, 53%);
-    
 }
 
 .time a::after {
@@ -618,7 +636,6 @@ nav li:hover::before {
 .time:hover a{
     color: white;
 }
-
 
 .passion .image::before {
     content: "";
@@ -646,16 +663,53 @@ nav li:hover::before {
     color: white;
 }
 
-
-
-
 /* end features */
 /* start testimonials */
 .testimonials .container-grid-columns {
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
 }
 
+.testimonials {
+    background-color: var(--section-background);
+}
 
+.testimonials h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.testimonials span {
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.testimonials .box {
+    background-color: white;
+    border-radius: 6px;
+    position: relative;
+    overflow: visible;
+    padding: 15px;
+}
+
+.testimonials .box div .fas{
+    color: gold;
+    margin-bottom: 12px;
+}
+
+.testimonials p {
+    line-height: 1.5;
+}
+
+.testimonials img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid var(--section-background);
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
 
 
 /* end testimonials */
@@ -665,7 +719,79 @@ nav li:hover::before {
     gap: 30px;
 }
 
+.team-members .box {
+    overflow: visible;
+    position: relative;
+}
 
+.team-members .box::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--section-background);
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.team-members .box::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--section-background);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+
+.team-members .box:hover::after {
+    width: 90%;
+    background-color: rgb(89%, 89%, 89%);
+}
+
+.team-members .data {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+    position: relative;
+    transform: translateX(-20px);
+}
+.team-members img {
+    width: calc(100% - 60px);
+    border-radius: 10px;
+    transition: var(--main-transition);
+}
+.team-members .box:hover img {
+    filter: grayscale(90%);
+}
+
+.team-members .social {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 20px;
+}
+.team-members .social a:hover {
+    color: var(--main-color-alt);
+} 
+
+.team-members .info {
+    padding-left: 60px;
+}
+
+.team-members h3{
+    color: var(--main-color);
+    margin-top: 22px;
+}
+
+.team-members p {
+    margin: 10px 0px 25px 0px;
+}
 
 
 /* end members*/
