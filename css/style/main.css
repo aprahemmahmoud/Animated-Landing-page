@@ -1245,12 +1245,66 @@ nav li:hover::before {
     background-color: rgb(9%, 53%, 88%,1);
 }
 /* end pricing-plans */
-/* start videos */
+/* start top-videos */
+.holder {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background-color: var(--section-background);
+    border: 2px solid #ddd;
+}
+
+@media (max-width:790px) {
+    .holder {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.top-videos .name {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+}
+
+.top-videos ul li {
+    padding: 20px;
+    background-color: white;
+    transition: var(--main-transition);
+}
+
+.top-videos ul li:hover {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.top-videos ul li span {
+    display: block;
+    color: #666;
+    margin-top: 10px;
+    font-size: 16px;
+}
 
 
+.top-videos .view {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--section-background);
+}
 
+.top-videos img {
+    height: fit-content;
+}
 
-
+.top-videos p {
+    padding: 20px;
+    margin-top: 10px;
+    font-size: 1em;
+    color: black;
+    background-color: white;
+}
 
 /* end videos */
 
